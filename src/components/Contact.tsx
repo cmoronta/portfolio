@@ -1,13 +1,8 @@
-import { Box } from "@chakra-ui/react";
-import { BoxProps } from "@chakra-ui/react";
+import { SectionProps } from "./Section";
+import Section from "./Section";
 
-export interface ContactProps extends BoxProps {
-}
+export interface ContactProps extends SectionProps {}
 
-export default function Contact (props: ContactProps) {
-  return (
-    <Box>
-
-    </Box>
-  );
+export default function Contact(props: ContactProps) {
+  return <Section bg="#E71D36">Contact</Section>;
 }

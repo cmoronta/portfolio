@@ -1,8 +1,8 @@
-import { Box } from "@chakra-ui/react";
-import { BoxProps } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
+import { FlexProps } from "@chakra-ui/react";
 
-export interface ContainerProps extends BoxProps {}
+export interface ContainerProps extends FlexProps {}
 
 export default function Container(props: ContainerProps) {
-  return <Box></Box>;
+  return <Flex direction="column">{props?.children}</Flex>;
 }

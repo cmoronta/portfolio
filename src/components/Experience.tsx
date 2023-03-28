@@ -1,8 +1,8 @@
-import { Box } from "@chakra-ui/react";
-import { BoxProps } from "@chakra-ui/react";
+import { SectionProps } from "./Section";
+import Section from "./Section";
 
-export interface ExperienceProps extends BoxProps {}
+export interface ExperienceProps extends SectionProps {}
 
 export default function Experience(props: ExperienceProps) {
-  return <Box></Box>;
+  return <Section bg="#91F5AD">Experience</Section>;
 }

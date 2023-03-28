@@ -1,8 +1,8 @@
-import { Box } from "@chakra-ui/react";
-import { BoxProps } from "@chakra-ui/react";
+import { SectionProps } from "./Section";
+import Section from "./Section";
 
-export interface HeroProps extends BoxProps {}
+export interface HeroProps extends SectionProps {}
 
-export default function App(props: HeroProps) {
-  return <Box></Box>;
+export default function Hero(props: HeroProps) {
+  return <Section>Hero</Section>;
 }

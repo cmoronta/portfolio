@@ -1,8 +1,8 @@
-import { Box } from "@chakra-ui/react";
-import { BoxProps } from "@chakra-ui/react";
+import { SectionProps } from "./Section";
+import Section from "./Section";
 
-export interface ProjectsProps extends BoxProps {}
+export interface ProjectsProps extends SectionProps {}
 
 export default function Projects(props: ProjectsProps) {
-  return <Box></Box>;
+  return <Section bg="#999AC6">Projects</Section>;
 }
