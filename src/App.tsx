@@ -7,20 +7,21 @@ import Who from "./components/Who";
 import Container from "./components/Container";
 import NavBar from "./components/NavBar";
 import "./index.css";
+import SectionContainer from "./components/SectionContainer";
 
 function App() {
-	return (
-		<Container>
-			<Box justifySelf="flex-start" width="100%" mr={140}>
-				<Hero />
-				<Who />
-				<Experience />
-				<Projects />
-				<Contact />
-			</Box>
-			<NavBar />
-		</Container>
-	);
+  return (
+    <Container>
+      <SectionContainer>
+        <Hero />
+        <Who />
+        <Experience />
+        <Projects />
+        <Contact />
+      </SectionContainer>
+      <NavBar />
+    </Container>
+  );
 }
 
 export default App;
