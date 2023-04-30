@@ -28,10 +28,10 @@ const NavLink = ({ children }: { children: ReactNode }) => (
 		px={2}
 		py={1}
 		rounded={"md"}
-		w={100}
+		w="100%"
 		_hover={{
 			textDecoration: "none",
-			bg: useColorModeValue("gray.200", "gray.700"),
+			bg: "rgba(0, 0, 0, 0.24)"
 		}}
 		href={"#"}
 	>
@@ -49,7 +49,6 @@ export default function NavBar(props: NavBarProps) {
 			<Flex
 				h={{ base: 16, md: "100vh" }}
 				w="10%"
-				mr={8}
 				mt={8}
 				alignItems={"flex-start"}
 				justifyContent="space-between"
@@ -65,8 +64,8 @@ export default function NavBar(props: NavBarProps) {
 					onClick={isOpen ? onClose : onOpen}
 					bg="transparent"
 				/>
-				<VStack spacing={8} alignItems={"center"}>
-					<VStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
+				<VStack w="100%" spacing={8} alignItems={"center"}>
+					<VStack w="100%" as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
 						{Links.map((link) => (
 							<NavLink key={link}>{link}</NavLink>
 						))}
