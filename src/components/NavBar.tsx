@@ -17,6 +17,7 @@ import {
 	useColorModeValue,
 	Stack,
 	BoxProps,
+	VStack,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 
@@ -27,6 +28,7 @@ const NavLink = ({ children }: { children: ReactNode }) => (
 		px={2}
 		py={1}
 		rounded={"md"}
+		w={100}
 		_hover={{
 			textDecoration: "none",
 			bg: useColorModeValue("gray.200", "gray.700"),
@@ -37,7 +39,7 @@ const NavLink = ({ children }: { children: ReactNode }) => (
 	</Link>
 );
 
-export interface NavBarProps extends BoxProps {}
+export interface NavBarProps extends BoxProps { }
 
 export default function NavBar(props: NavBarProps) {
 	const { isOpen, onOpen, onClose } = useDisclosure();
@@ -45,10 +47,13 @@ export default function NavBar(props: NavBarProps) {
 	return (
 		<>
 			<Flex
-				h={16}
-				alignItems={"center"}
-				justifyContent={"space-between"}
-				width={{ base: "100vw", md: "100vw" }}
+				h={{ base: 16, md: "100vh" }}
+				w="10%"
+				mr={8}
+				mt={8}
+				alignItems={"flex-start"}
+				justifyContent="space-between"
+				right="0"
 				position="fixed"
 			>
 				<IconButton
@@ -60,13 +65,13 @@ export default function NavBar(props: NavBarProps) {
 					onClick={isOpen ? onClose : onOpen}
 					bg="transparent"
 				/>
-				<HStack spacing={8} alignItems={"center"}>
-					<HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
+				<VStack spacing={8} alignItems={"center"}>
+					<VStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
 						{Links.map((link) => (
 							<NavLink key={link}>{link}</NavLink>
 						))}
-					</HStack>
-				</HStack>
+					</VStack>
+				</VStack>
 			</Flex>
 
 			{isOpen ? (

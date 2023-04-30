@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Box } from "@chakra-ui/react";
 import Contact from "./components/Contact";
 import Experience from "./components/Experience";
 import Hero from "./components/Hero";
@@ -10,16 +10,16 @@ import "./index.css";
 
 function App() {
 	return (
-		<>
-			<NavBar />
-			<Container as="main" marginTop={16}>
+		<Container>
+			<Box justifySelf="flex-start" width="100%" mr={140}>
 				<Hero />
 				<Who />
 				<Experience />
 				<Projects />
 				<Contact />
-			</Container>
-		</>
+			</Box>
+			<NavBar />
+		</Container>
 	);
 }
 
