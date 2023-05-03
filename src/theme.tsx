@@ -1,10 +1,11 @@
 import { extendTheme } from "@chakra-ui/react";
-import "@fontsource/lato/400.css";
+import "@fontsource/montserrat/400.css";
+import "@fontsource/montserrat/700.css";
 
 const theme = extendTheme({
 	fonts: {
-		heading: `'Lato', sans-serif`,
-		body: `'Lato', sans-serif`,
+		heading: `Montserrat, sans-serif`,
+		body: `Montserrat, sans-serif`,
 	},
 });
 

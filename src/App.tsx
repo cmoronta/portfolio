@@ -2,9 +2,9 @@ import { ChakraProvider } from "@chakra-ui/react";
 import theme from "./theme";
 import Contact from "./components/Contact";
 import Experience from "./components/Experience";
-import Hero from "./components/Hero";
 import Projects from "./components/Projects";
 import Who from "./components/Who";
+import Home from "./components/Home";
 import Container from "./components/Container";
 import NavBar from "./components/NavBar";
 import SectionContainer from "./components/SectionContainer";
@@ -15,7 +15,7 @@ function App() {
 		<ChakraProvider theme={theme}>
 			<Container>
 				<SectionContainer>
-					<Hero />
+					<Home />
 					<Who />
 					<Experience />
 					<Projects />
