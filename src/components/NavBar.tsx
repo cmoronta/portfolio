@@ -29,6 +29,7 @@ const NavLink = ({ children }: { children: ReactNode }) => (
     py={2}
     rounded={"md"}
     w="100%"
+    fontSize="xl"
     _hover={{
       textDecoration: "none",
       bg: "rgba(0, 0, 0, 0.24)",
@@ -69,6 +70,7 @@ export default function NavBar(props: NavBarProps) {
             w="100%"
             as={"nav"}
             spacing={4}
+            mr={{ md: 8 }}
             display={{ base: "none", md: "flex" }}
           >
             {Links.map((link) => (
