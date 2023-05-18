@@ -48,8 +48,7 @@ export default function Skills(props: SkillsProps) {
   });
 
   return (
-    <Section>
-      <Heading fontSize="6xl">Skills</Heading>
+    <Section heading={props.heading}>
       <SimpleGrid p={2} spacing={4} columns={[1, null, 2, null, 1]}>
         {cards}
       </SimpleGrid>

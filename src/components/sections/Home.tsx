@@ -7,7 +7,7 @@ export interface HomeProps extends SectionProps {}
 
 export default function Home(props: HomeProps) {
   return (
-    <Section>
+    <Section heading={props.heading}>
       <Flex
         direction="column"
         height="100vh"

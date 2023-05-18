@@ -15,11 +15,11 @@ function App() {
     <ChakraProvider theme={theme}>
       <Container>
         <SectionContainer>
-          <Home />
-          <Experience />
-          <Skills />
-          <Projects />
-          <Contact />
+          <Home heading={null} />
+          <Experience heading="Experience" />
+          <Skills heading="Skills" />
+          <Projects heading="Projects" />
+          <Contact heading="Contact" />
         </SectionContainer>
         <NavBar />
       </Container>
