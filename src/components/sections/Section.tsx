@@ -9,8 +9,7 @@ export default function Section(props: SectionProps) {
     <Box
       scrollSnapAlign={{ base: "none", md: "start" }}
       height={{ md: "100vh" }}
-      pt={4}
-      pb={4}
+      p={4}
     >
       <Heading ml={8} fontSize={["2xl", "3xl", "4xl", "5xl", "6xl"]}>
         {props.heading}
