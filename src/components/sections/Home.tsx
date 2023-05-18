@@ -31,8 +31,8 @@ export default function Home(props: HomeProps) {
               <Heading size="4xl">Christian Moronta</Heading>
               <Text fontWeight="400" fontSize="2xl" mt={4}>
                 Sofware Engineer based out of metro Atlanta with an interest in
-                Digital Signal Processing, Web Development using React, Node,
-                and TypeScript, and AWS{" "}
+                Digital Signals Processing, Web Development using React, Node,
+                TypeScript, Cloudh Computing, and Music{" "}
               </Text>
             </Flex>
           </Flex>
