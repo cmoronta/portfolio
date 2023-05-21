@@ -49,19 +49,24 @@ export default function NavBar(props: NavBarProps) {
     <>
       <Flex
         h={{ base: 16, md: "100vh" }}
-        w="8em"
-        mt={8}
-        alignItems={"flex-start"}
-        justifyContent="space-between"
-        right="0"
+        w={{ base: "100%", md: "10em" }}
+        mt={{ base: 2, lg: 8 }}
+        right={{ md: "0" }}
         position="fixed"
+        justifyContent="flex-end"
+        direction={{ base: "row", md: "column" }}
       >
         <IconButton
           size={"md"}
-          icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+          icon={
+            isOpen ? (
+              <CloseIcon bg="transparent" />
+            ) : (
+              <HamburgerIcon bg="transparent" />
+            )
+          }
           aria-label={"Open Menu"}
           display={{ md: "none" }}
-          alignSelf="center"
           onClick={isOpen ? onClose : onOpen}
           bg="transparent"
         />

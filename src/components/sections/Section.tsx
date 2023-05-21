@@ -10,6 +10,7 @@ export default function Section(props: SectionProps) {
       scrollSnapAlign={{ base: "none", md: "start" }}
       height={{ md: "100vh" }}
       p={4}
+      width={{ base: "100%", md: "97%" }}
     >
       <Heading ml={8} fontSize={["2xl", "3xl", "4xl", "5xl", "6xl"]}>
         {props.heading}
