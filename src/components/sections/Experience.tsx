@@ -1,4 +1,12 @@
-import { Box, Flex, ListItem, Text, UnorderedList } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  HStack,
+  ListItem,
+  Stack,
+  Text,
+  UnorderedList,
+} from "@chakra-ui/react";
 import { SectionProps } from "./Section";
 import Section from "./Section";
 
@@ -25,20 +33,34 @@ export default function Experience(props: ExperienceProps) {
         alignItems="center"
         direction="column"
         p={8}
+        pl={16}
+        pr={16}
       >
-        <Text fontWeight="bold" fontSize={["2xl", "3xl", "4xl", "5xl"]}>
-          Georgia Tech Research Institute
-        </Text>
-        <Text fontSize={["xl", "2xl", "4xl"]}>
-          Cloud DevOps Engineer Intern (Remote)
-        </Text>
-        <Text mt={8} fontSize={["lg", "xl", "3xl"]}>
-          May 2020 - January 2021
-        </Text>
+        <Stack spacing={1} alignItems="center">
+          <Text
+            fontWeight="bold"
+            fontSize={{ base: "2xl", md: "3xl", lg: "3xl", xl: "5xl" }}
+          >
+            Georgia Tech Research Institute
+          </Text>
+          <Text fontSize={{ base: "xl", md: "2xl", lg: "2xl", xl: "3xl" }}>
+            Cloud DevOps Engineer Intern (Remote)
+          </Text>
+          <Text fontSize={{ base: "lg", md: "xl", lg: "2xl", xl: "3xl" }}>
+            May 2020 - January 2021
+          </Text>
+        </Stack>
         <Box w="100%" mt={8}>
-          <UnorderedList fontSize={["lg", "xl", "3xl"]}>
-            {expStrings.map((str) => {
-              return <ListItem>{str}</ListItem>;
+          <UnorderedList spacing={4}>
+            {expStrings.map((str, i) => {
+              return (
+                <ListItem
+                  key={i}
+                  fontSize={{ base: "md", md: "lg", lg: "2xl", xl: "3xl" }}
+                >
+                  {str}
+                </ListItem>
+              );
             })}
           </UnorderedList>
         </Box>

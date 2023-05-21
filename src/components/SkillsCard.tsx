@@ -59,7 +59,7 @@ export default function SkillsCard(props: SkillCardsProps) {
           {/** Heading and Subtext */}
           <Box width={{ base: "100%", xl: "50%" }} ml={{ lg: 2 }}>
             <Heading>{props.title}</Heading>
-            <Text fontSize="xl" mt={2}>
+            <Text fontSize={{ base: "lg", lg: "xl" }} mt={2}>
               {props.content}
             </Text>
           </Box>
