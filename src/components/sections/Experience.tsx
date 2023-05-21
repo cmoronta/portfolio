@@ -33,10 +33,10 @@ export default function Experience(props: ExperienceProps) {
         alignItems="center"
         direction="column"
         p={8}
-        pl={16}
-        pr={16}
+        pl={{ base: 8, lg: 16 }}
+        pr={{ base: 8, lg: 16 }}
       >
-        <Stack spacing={1} alignItems="center">
+        <Stack spacing={1} alignItems={{ base: "flex-start", lg: "center" }}>
           <Text
             fontWeight="bold"
             fontSize={{ base: "2xl", md: "3xl", lg: "3xl", xl: "5xl" }}
