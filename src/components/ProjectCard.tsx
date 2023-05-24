@@ -1,6 +1,10 @@
-import { Flex, FlexProps, Link, Text } from "@chakra-ui/react";
+import { Flex, FlexProps, Heading, Link, Text, VStack } from "@chakra-ui/react";
 
-export interface ProjectCardProps extends FlexProps {}
+export interface ProjectCardProps extends FlexProps {
+  // title: string;
+  // description: string;
+  // tags: string;
+}
 
 export default function ProjectCard(props: ProjectCardProps) {
   return (
@@ -13,10 +17,19 @@ export default function ProjectCard(props: ProjectCardProps) {
       height="90%"
       p={4}
     >
-      <Link _hover={{ textDecoration: "none" }} w="100%" h="100%">
-        <Flex>
-          <Text>Test</Text>
-        </Flex>
+      <Link
+        href="https:/google.com"
+        target="_blank"
+        rel="noreferrer noopener"
+        _hover={{ textDecoration: "none" }}
+        w="100%"
+        h="100%"
+      >
+        <VStack direction="column" alignItems="flex-start">
+          <Heading>Project Title</Heading>
+          <Text>This is a test</Text>
+          <Text>Tags</Text>
+        </VStack>
       </Link>
     </Flex>
   );

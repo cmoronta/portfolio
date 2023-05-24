@@ -53,7 +53,6 @@ export default function NavBar(props: NavBarProps) {
         mt={{ base: 2, lg: 8 }}
         right={{ md: "0" }}
         position="fixed"
-        justifyContent="flex-end"
         direction={{ base: "row", md: "column" }}
       >
         <IconButton
