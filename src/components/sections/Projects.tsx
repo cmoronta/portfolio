@@ -22,8 +22,8 @@ export default function Projects(props: ProjectsProps) {
 			link: "https://github.com/cmoronta/ytmp3",
 		},
 		{
-			title: "CSV to Calendar Events Script",
-			text: "Used Python and the Google's calendar API to generate calendar events from a CSV file to organize when social media content is to be posted for my band.",
+			title: "Google Calendar Scripts",
+			text: "Used Python and Google's calendar API to generate calendar events from a CSV file to organize when social media content is to be posted for my band.",
 			tags: "Python / Google Calendar API",
 			date: "2023",
 			link: "https://github.com/cmoronta/scripts",

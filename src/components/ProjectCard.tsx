@@ -5,7 +5,7 @@ import {
 	Link,
 	Text,
 	VStack,
-	Box,
+	Tag,
 } from "@chakra-ui/react";
 
 export interface ProjectCardProps extends FlexProps {
@@ -17,6 +17,14 @@ export interface ProjectCardProps extends FlexProps {
 }
 
 export default function ProjectCard(props: ProjectCardProps) {
+	let tags = props.tags.split(" / ");
+	let tagComponents = tags.map((tag) => {
+		return (
+			<Tag color="gray.900" m={0.5} bg="#C5C6D0" width="auto">
+				{tag}
+			</Tag>
+		);
+	});
 	return (
 		<Flex
 			bg="rgba( 255, 255, 255, 0.05 )"
@@ -24,7 +32,7 @@ export default function ProjectCard(props: ProjectCardProps) {
 			backdropBlur="8px"
 			backdropFilter="blur(3px)"
 			boxShadow="lg"
-			height="auto"
+			height="24rem"
 		>
 			<Link
 				href={props.link}
@@ -47,8 +55,10 @@ export default function ProjectCard(props: ProjectCardProps) {
 						<Text>{props.date}</Text>
 						<Text>{props.text}</Text>
 					</VStack>
-
-					<Text fontWeight="600">{props.tags}</Text>
+					{/* <Text fontWeight="600">{props.tags}</Text> */}
+					<Flex justifyContent="flex-start" direction="row" flexWrap="wrap">
+						{tagComponents}
+					</Flex>
 				</VStack>
 			</Link>
 		</Flex>
