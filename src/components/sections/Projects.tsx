@@ -35,6 +35,13 @@ export default function Projects(props: ProjectsProps) {
 			date: "2023",
 			link: "https://github.com/cmoronta/ticket_bot",
 		},
+		{
+			title: "This website!",
+			text: "This is my portfolio site.",
+			tags: "React / TypeScript / ChakraUI / Framer Motion / React Three Fiber / MongoDB",
+			date: "2023",
+			link: "https://github.com/cmoronta/portfolio",
+		},
 	];
 
 	projects = projects.sort((a, b) => {
