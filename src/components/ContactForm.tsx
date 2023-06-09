@@ -36,6 +36,7 @@ export default function ContactForm(props: ContactFormProps) {
 				_focus={{
 					background: "white",
 				}}
+				resize="none"
 			/>
 			<Button width="100%" bg="orange.300">
 				Send
