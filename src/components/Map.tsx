@@ -1,5 +1,10 @@
-import { Box, BoxProps } from "@chakra-ui/react";
-import { ComposableMap, Geographies, Geography } from "react-simple-maps";
+import { Box, BoxProps, Text } from "@chakra-ui/react";
+import {
+	Annotation,
+	ComposableMap,
+	Geographies,
+	Geography,
+} from "react-simple-maps";
 import { chakra } from "@chakra-ui/system";
 
 const ChakraGeography = chakra(Geography);
@@ -18,7 +23,7 @@ export default function Map(props: BoxProps) {
 					{({ geographies }) =>
 						geographies.map((geo) => (
 							<ChakraGeography
-								fill={"blue.400"}
+								fill={"#FFA3A5"}
 								stroke="#FFF"
 								key={geo.rsmKey}
 								geography={geo}
@@ -26,6 +31,20 @@ export default function Map(props: BoxProps) {
 						))
 					}
 				</Geographies>
+				<Annotation
+					subject={[-83.9007, 33.839]}
+					dx={90}
+					dy={-80}
+					connectorProps={{
+						stroke: "#000000",
+						strokeWidth: 2,
+						strokeLinecap: "butt",
+					}}
+				>
+					<text fontSize={24} fontFamily="bold">
+						I am here
+					</text>
+				</Annotation>
 			</ComposableMap>
 		</Box>
 	);
