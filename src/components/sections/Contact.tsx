@@ -1,4 +1,4 @@
-import { Grid } from "@chakra-ui/react";
+import { SimpleGrid } from "@chakra-ui/react";
 import { SectionProps } from "./Section";
 import Section from "./Section";
 import ContactForm from "./../ContactForm";
@@ -9,10 +9,10 @@ export interface ContactProps extends SectionProps {}
 export default function Contact(props: ContactProps) {
 	return (
 		<Section heading={props.heading}>
-			<Grid p={8} templateColumns="repeat(2, 1fr)" gap={4}>
+			<SimpleGrid p={8} columns={[1, 2]} minHeight={72} gap={4}>
 				<ContactForm />
 				<Map />
-			</Grid>
+			</SimpleGrid>
 		</Section>
 	);
 }
