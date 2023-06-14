@@ -4,16 +4,15 @@ import { BoxProps } from "@chakra-ui/react";
 export interface SectionContainerProps extends BoxProps {}
 
 export default function SectionContainer(props: SectionContainerProps) {
-  return (
-    <Box
-      justifySelf="flex-start"
-      width="100%"
-      h="100%"
-      mr={"8em"}
-      scrollSnapType="y mandatory"
-      overflowY="auto"
-    >
-      {props?.children}
-    </Box>
-  );
+	return (
+		<Box
+			justifySelf="flex-start"
+			width="100%"
+			h="100%"
+			mr={"8em"}
+			overflowY="auto"
+		>
+			{props?.children}
+		</Box>
+	);
 }

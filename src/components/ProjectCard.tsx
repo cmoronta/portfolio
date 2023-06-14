@@ -18,9 +18,9 @@ export interface ProjectCardProps extends FlexProps {
 
 export default function ProjectCard(props: ProjectCardProps) {
 	let tags = props.tags.split(" / ");
-	let tagComponents = tags.map((tag) => {
+	let tagComponents = tags.map((tag, i) => {
 		return (
-			<Tag color="gray.900" m={0.5} bg="#C5C6D0" width="auto">
+			<Tag key={i} color="gray.900" m={0.5} bg="#C5C6D0" width="auto">
 				{tag}
 			</Tag>
 		);
