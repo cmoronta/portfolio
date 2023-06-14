@@ -65,7 +65,7 @@ export default function Projects(props: ProjectsProps) {
 			<SimpleGrid
 				height="100%"
 				p={8}
-				columns={{ base: 1, md: 2, xl: 3 }}
+				columns={{ base: 1, md: 2, lg: 3 }}
 				spacing={4}
 			>
 				{projectCards}

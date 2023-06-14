@@ -55,7 +55,6 @@ export default function ProjectCard(props: ProjectCardProps) {
 						<Text>{props.date}</Text>
 						<Text>{props.text}</Text>
 					</VStack>
-					{/* <Text fontWeight="600">{props.tags}</Text> */}
 					<Flex justifyContent="flex-start" direction="row" flexWrap="wrap">
 						{tagComponents}
 					</Flex>
