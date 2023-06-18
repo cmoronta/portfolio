@@ -6,7 +6,7 @@ import Projects from "./components/sections/Projects";
 import Skills from "./components/sections/Skills";
 import Home from "./components/sections/Home";
 import Container from "./components/Container";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/navbar/NavBar";
 import SectionContainer from "./components/sections/SectionContainer";
 import "./index.css";
 
