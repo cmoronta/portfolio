@@ -21,7 +21,6 @@ const NavLink = ({
 			bg: "rgba(0, 0, 0, 0.24)",
 		}}
 		href={"#"}
-		display={{ base: "none", lg: "flex" }}
 	>
 		{children}
 	</Link>
