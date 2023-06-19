@@ -1,21 +1,10 @@
-import {
-	Flex,
-	BoxProps,
-	DrawerOverlay,
-	DrawerContent,
-	DrawerCloseButton,
-	Drawer,
-	useDisclosure,
-	DrawerBody,
-	IconButton,
-} from "@chakra-ui/react";
-import { HamburgerIcon } from "@chakra-ui/icons";
-import NavItems from "./NavItems";
+import { Flex, BoxProps } from "@chakra-ui/react";
+import MobileNav from "./MobileNav";
+import DeskTopNav from "./DesktopNav";
 
 export interface NavBarProps extends BoxProps {}
 
 export default function NavBar(props: NavBarProps) {
-	const { isOpen, onOpen, onClose } = useDisclosure();
 	return (
 		<>
 			<Flex
@@ -30,35 +19,8 @@ export default function NavBar(props: NavBarProps) {
 				position="fixed"
 				direction={{ base: "row", xl: "column" }}
 			>
-				<IconButton
-					alignSelf={"center"}
-					size={"md"}
-					ml={2}
-					_hover={{
-						bg: "blackAlpha.300",
-					}}
-					icon={<HamburgerIcon bg="transparent" />}
-					aria-label={"Open Menu"}
-					display={{ md: "none" }}
-					onClick={isOpen ? onClose : onOpen}
-					bg="transparent"
-				/>
-				<Drawer
-					closeOnEsc
-					placement="left"
-					size="xs"
-					isOpen={isOpen}
-					onClose={onClose}
-				>
-					<DrawerOverlay />
-					<DrawerContent bg="gray.700">
-						<DrawerCloseButton color="white" />
-						<DrawerBody color="white" mt={12}>
-							<NavItems />
-						</DrawerBody>
-					</DrawerContent>
-				</Drawer>
-				<NavItems />
+				<MobileNav />
+				<DeskTopNav />
 			</Flex>
 		</>
 	);

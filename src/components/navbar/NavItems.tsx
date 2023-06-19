@@ -1,40 +1,17 @@
 import { BoxProps, Link, VStack } from "@chakra-ui/react";
 import { ReactNode } from "react";
+import NavLink from "./NavLink";
 
-const NavLink = ({ children }: { children: ReactNode }) => (
-	<Link
-		px={1}
-		py={2}
-		rounded={"md"}
-		w="100%"
-		mr={{ base: 2, md: "none" }}
-		fontSize="xl"
-		_hover={{
-			textDecoration: "none",
-			bg: "rgba(0, 0, 0, 0.24)",
-		}}
-		href={"#"}
-	>
-		{children}
-	</Link>
-);
+export interface NavItemsProps extends BoxProps {}
 
-export default function NavItems(props: BoxProps) {
+export default function NavItems(props: NavItemsProps) {
 	const links = ["Home", "Experience", "Skills", "Projects", "Contact"];
 
 	return (
-		<VStack w="100%" spacing={8} alignItems={"center"}>
-			<VStack
-				w="100%"
-				as={"nav"}
-				spacing={4}
-				mr={{ md: 8 }}
-				display={{ base: "none", md: "flex" }}
-			>
-				{links.map((link) => (
-					<NavLink key={link}>{link}</NavLink>
-				))}
-			</VStack>
+		<VStack w="100%" as={"nav"} spacing={2} mr={{ md: 8 }}>
+			{links.map((link) => (
+				<NavLink key={link}>{link}</NavLink>
+			))}
 		</VStack>
 	);
 }
