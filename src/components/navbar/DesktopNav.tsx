@@ -3,7 +3,7 @@ import NavItems from "./NavItems";
 
 const DeskTopNav = () => {
 	return (
-		<Box display={{ base: "none", lg: "flex" }}>
+		<Box display={{ base: "none", md: "flex" }}>
 			<NavItems />
 		</Box>
 	);

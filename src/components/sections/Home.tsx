@@ -8,13 +8,9 @@ export interface HomeProps extends SectionProps {}
 export default function Home(props: HomeProps) {
 	return (
 		<Section heading={props.heading}>
-			<Flex
-				direction="column"
-				height="100vh"
-				alignItems="center"
-				justifyContent="center"
-			>
+			<Flex direction="column" alignItems="center" justifyContent="center">
 				<Flex
+					pt={{ base: 8, md: 4, lg: 0 }}
 					direction="column"
 					alignItems="center"
 					justifyContent="center"
@@ -29,7 +25,7 @@ export default function Home(props: HomeProps) {
 						<Image
 							shadow="md"
 							borderRadius="full"
-							boxSize="14em"
+							boxSize={{ base: "12rem", lg: "14rem" }}
 							src="photo.jpg"
 							alignSelf="center"
 						/>
@@ -40,8 +36,14 @@ export default function Home(props: HomeProps) {
 							alignContent="center"
 							pt={{ base: 8, lg: "none" }}
 						>
-							<Heading size="4xl">Christian Moronta</Heading>
-							<Text fontWeight="400" fontSize="2xl" mt={4}>
+							<Heading size={{ base: "2xl", lg: "4xl" }}>
+								Christian Moronta
+							</Heading>
+							<Text
+								fontWeight="400"
+								fontSize={{ base: "xl", lg: "2xl" }}
+								mt={4}
+							>
 								Sofware Engineer based out of metro Atlanta with an interest in
 								Audio Signals Processing, Web Development using React, Node,
 								TypeScript, Cloud Computing, and Music{" "}

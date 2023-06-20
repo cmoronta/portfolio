@@ -16,8 +16,8 @@ export default function Projects(props: ProjectsProps) {
 		},
 		{
 			title: "ytmp3",
-			text: "CLI script implemented using Node.js, yargs, fluent-ffmpeg, and ytdl-core that takes a YouTube video URL or ID as an argument and downloads it as an .mp3 to the Downloads folder. Option to convert to .aiff and/or to split the song by instrument using the demucs ML model",
-			tags: "Node / yargs / fluent-ffmpeg / ytdl-cores",
+			text: "CLI script that takes a YouTube video URL or ID as an argument and downloads it as an .mp3 to the specified folder. Option to convert to .aiff and/or to split the song by instrument using the demucs ML model",
+			tags: "Node / yargs / fluent-ffmpeg / ytdl-core",
 			date: "2022",
 			link: "https://github.com/cmoronta/ytmp3",
 		},
@@ -64,7 +64,7 @@ export default function Projects(props: ProjectsProps) {
 		<Section heading={props.heading}>
 			<SimpleGrid
 				height="100%"
-				p={8}
+				p={4}
 				columns={{ base: 1, md: 2, lg: 3 }}
 				spacing={4}
 			>

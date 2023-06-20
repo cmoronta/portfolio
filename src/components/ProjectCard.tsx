@@ -32,7 +32,7 @@ export default function ProjectCard(props: ProjectCardProps) {
 			backdropBlur="8px"
 			backdropFilter="blur(3px)"
 			boxShadow="lg"
-			height="24rem"
+			height={{ base: "28rem", lg: "24rem" }}
 		>
 			<Link
 				href={props.link}
