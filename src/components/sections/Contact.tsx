@@ -7,12 +7,12 @@ import Map from "../Map";
 export interface ContactProps extends SectionProps {}
 
 export default function Contact(props: ContactProps) {
-	return (
-		<Section heading={props.heading}>
-			<SimpleGrid p={8} columns={[1, 2]} minHeight={72} gap={4}>
-				<ContactForm />
-				<Map />
-			</SimpleGrid>
-		</Section>
-	);
+  return (
+    <Section heading={props.heading}>
+      <SimpleGrid height="100%" p={8} columns={[1, 2]} minHeight={72} gap={4}>
+        <ContactForm />
+        <Map />
+      </SimpleGrid>
+    </Section>
+  );
 }
