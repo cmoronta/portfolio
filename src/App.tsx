@@ -11,20 +11,20 @@ import SectionContainer from "./components/sections/SectionContainer";
 import "./index.css";
 
 function App() {
-	return (
-		<ChakraProvider theme={theme}>
-			<Container>
-				<SectionContainer>
-					<Home heading={null} />
-					<Experience heading="Experience" />
-					<Skills heading="Skills" />
-					<Projects heading="Projects" />
-					<Contact heading="Contact" />
-				</SectionContainer>
-				<NavBar />
-			</Container>
-		</ChakraProvider>
-	);
+  return (
+    <ChakraProvider theme={theme}>
+      <Container>
+        <SectionContainer>
+          <Home heading={null} />
+          <Experience heading="Experience" />
+          <Skills heading="Skills" />
+          <Projects heading="Projects" />
+          <Contact heading="Contact Me" />
+        </SectionContainer>
+        <NavBar />
+      </Container>
+    </ChakraProvider>
+  );
 }
 
 export default App;
