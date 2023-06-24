@@ -1,4 +1,4 @@
-import { ChakraProvider } from "@chakra-ui/react";
+import { Box, ChakraProvider } from "@chakra-ui/react";
 import theme from "./theme";
 import Contact from "./components/sections/Contact";
 import Experience from "./components/sections/Experience";
@@ -9,19 +9,27 @@ import Container from "./components/Container";
 import NavBar from "./components/navbar/NavBar";
 import SectionContainer from "./components/sections/SectionContainer";
 import "./index.css";
+import { useRef } from "react";
+import useScrollspy from "./hooks/useScrollSpy";
 
 function App() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [currentActiveIndex] = useScrollspy(containerRef, {
+    root: containerRef,
+  });
   return (
     <ChakraProvider theme={theme}>
       <Container>
         <SectionContainer>
-          <Home heading={null} />
-          <Experience heading="Experience" />
-          <Skills heading="Skills" />
-          <Projects heading="Projects" />
-          <Contact heading="Contact Me" />
+          <div ref={containerRef}>
+            <Home heading={null} />
+            <Experience heading="Experience" />
+            <Skills heading="Skills" />
+            <Projects heading="Projects" />
+            <Contact heading="Contact Me" />
+          </div>
         </SectionContainer>
-        <NavBar />
+        <NavBar activeIndex={currentActiveIndex} />
       </Container>
     </ChakraProvider>
   );

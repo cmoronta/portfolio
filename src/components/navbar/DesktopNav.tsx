@@ -1,12 +1,8 @@
-import { Box } from "@chakra-ui/react";
-import NavItems from "./NavItems";
+import { Box, BoxProps } from "@chakra-ui/react";
 
-const DeskTopNav = () => {
-	return (
-		<Box display={{ base: "none", md: "flex" }}>
-			<NavItems />
-		</Box>
-	);
+export interface DesktopNavProps extends BoxProps {}
+const DeskTopNav = (props: DesktopNavProps) => {
+  return <Box display={{ base: "none", md: "flex" }}>{props.children}</Box>;
 };
 
 export default DeskTopNav;

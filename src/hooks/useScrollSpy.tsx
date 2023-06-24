@@ -1,58 +1,54 @@
-/**
- * ScrollSpy hook taken from https://blog.maximeheckel.com/posts/scrollspy-demystified/
- * Definitely check it out as it has helped a lot for this project
- */
+import React, { useEffect, useState, useRef } from "react";
 
-import { useEffect, useRef, useState } from "react";
+const useScrollspy = (
+  elements: React.RefObject<HTMLDivElement>,
+  options?: {
+    offset?: number;
+    root?: React.RefObject<Element>;
+  }
+): [number] => {
+  const [currentIntersectingElementIndex, setCurrentIntersectingElementIndex] =
+    useState(-1);
 
-const useScrollSpy = (
-	elements: Element[],
-	options?: {
-		offset?: number;
-		root?: Element;
-	}
-): [number, Element[]?, number[]?] => {
-	const [currentIntersectingElementIndex, setCurrentIntersectingElementIndex] =
-		useState(-1);
+  const rootMargin = `-${(options && options.offset) || 0}px 0px 0px 0px`;
 
-	const rootMargin = `-${(options && options.offset) || 0}px 0px 0px 0px`;
+  const observer = useRef<IntersectionObserver>();
 
-	const observer = useRef<IntersectionObserver>();
+  useEffect(() => {
+    if (observer.current) {
+      observer.current.disconnect();
+    }
 
-	useEffect(() => {
-		if (observer.current) {
-			observer.current.disconnect();
-		}
+    observer.current = new IntersectionObserver(
+      (entries) => {
+        // find the index of the section that is currently intersecting
+        const indexOfElementIntersecting = entries.findIndex((entry) => {
+          // if intersection > 0 it means entry is intersecting with the view port
+          return entry.intersectionRatio > 0.4;
+        });
 
-		observer.current = new IntersectionObserver(
-			(entries) => {
-				// find the index of the section that is currently intersecting
-				const indexOfElementIntersecting = entries.findIndex((entry) => {
-					// if intersection > 0 it means entry is intersecting with the view port
-					return entry.intersectionRatio > 0;
-				});
+        // store the value of indexOfElementIntersecting
+        setCurrentIntersectingElementIndex(indexOfElementIntersecting);
+      },
+      {
+        root: null,
+        // use this option to handle custom offset
+        rootMargin,
+      }
+    );
 
-				// store the value of indexOfElementIntersecting
-				setCurrentIntersectingElementIndex(indexOfElementIntersecting);
-			},
-			{
-				root: (options && options.root) || null,
-				// use this option to handle custom offset
-				rootMargin,
-			}
-		);
+    const { current: ourObserver } = observer;
+    const children = elements.current?.childNodes;
 
-		const { current: ourObserver } = observer;
+    // observe all the elements passed as argument of the hook
+    children?.forEach((element) => {
+      element ? ourObserver.observe(element as HTMLElement) : null;
+    });
 
-		// observe all the elements passed as argument of the hook
-		elements.forEach((element) =>
-			element ? ourObserver.observe(element) : null
-		);
+    return () => ourObserver.disconnect();
+  }, [elements, options, rootMargin]);
 
-		return () => ourObserver.disconnect();
-	}, [elements, options, rootMargin]);
-
-	return [currentIntersectingElementIndex];
+  return [currentIntersectingElementIndex];
 };
 
-export default useScrollSpy;
+export default useScrollspy;
