@@ -15,7 +15,7 @@ export default function NavBar(props: NavBarProps) {
       <Flex
         h={{ base: 16, md: "100vh" }}
         w={{ base: "100%", md: "10em" }}
-        mt={{ base: 0, lg: 8 }}
+        mt={{ base: 0, md: 4, lg: 8 }}
         right={{ md: "0" }}
         bgGradient={{
           base: "linear(to-r, #f7ba2b, #f08542)",
