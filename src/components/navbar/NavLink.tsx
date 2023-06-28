@@ -14,7 +14,7 @@ const NavLink = (props: NavLinkProps) => {
       rounded={"md"}
       w="100%"
       mr={{ base: 2, md: "none" }}
-      fontSize="xl"
+      fontSize={{ base: "lg", lg: "xl", xl: "2xl" }}
       _hover={{
         textDecoration: "none",
         bg: "rgba(0, 0, 0, 0.24)",

@@ -14,7 +14,7 @@ export default function NavItems(props: NavItemsProps) {
     </NavLink>
   ));
   return (
-    <VStack w="100%" as={"nav"} spacing={2} mr={{ md: 8 }}>
+    <VStack w="100%" as={"nav"} spacing={2} mr={{ lg: 8 }}>
       {linkComponents}
     </VStack>
   );
