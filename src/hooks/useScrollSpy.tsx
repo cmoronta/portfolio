@@ -1,54 +1,50 @@
 import React, { useEffect, useState, useRef } from "react";
 
-const useScrollspy = (
-  elements: React.RefObject<HTMLDivElement>,
+const useScrollSpy = (
+  element: HTMLDivElement | null,
   options?: {
     offset?: number;
     root?: React.RefObject<Element>;
   }
-): [number] => {
-  const [currentIntersectingElementIndex, setCurrentIntersectingElementIndex] =
-    useState(-1);
-
-  const rootMargin = `-${(options && options.offset) || 0}px 0px 0px 0px`;
+): boolean => {
+  const [isVisible, setIsVisible] = useState<boolean>(false);
 
   const observer = useRef<IntersectionObserver>();
 
-  useEffect(() => {
-    if (observer.current) {
-      observer.current.disconnect();
-    }
-
-    observer.current = new IntersectionObserver(
-      (entries) => {
-        // find the index of the section that is currently intersecting
-        const indexOfElementIntersecting = entries.findIndex((entry) => {
-          // if intersection > 0 it means entry is intersecting with the view port
-          return entry.intersectionRatio > 0.4;
-        });
-
-        // store the value of indexOfElementIntersecting
-        setCurrentIntersectingElementIndex(indexOfElementIntersecting);
-      },
-      {
-        root: null,
-        // use this option to handle custom offset
-        rootMargin,
+  const callback = (entries: IntersectionObserverEntry[]) => {
+    console.log("Entries: ", entries);
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        console.log("Current entry is: ", entry.target);
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
       }
-    );
+    });
+  };
 
-    const { current: ourObserver } = observer;
-    const children = elements.current?.childNodes;
+  useEffect(() => {
+    if (observer.current) observer.current.disconnect();
 
-    // observe all the elements passed as argument of the hook
-    children?.forEach((element) => {
-      element ? ourObserver.observe(element as HTMLElement) : null;
+    observer.current = new IntersectionObserver(callback, {
+      root: null,
+      // use this option to handle custom offset
+      rootMargin: "-30% 0px",
     });
 
-    return () => ourObserver.disconnect();
-  }, [elements, options, rootMargin]);
+    const { current: ourObserver } = observer;
 
-  return [currentIntersectingElementIndex];
+    if (element) {
+      ourObserver.observe(element);
+    }
+    return () => {
+      if (element) {
+        ourObserver.unobserve(element);
+      }
+    };
+  }, [element]);
+
+  return isVisible;
 };
 
-export default useScrollspy;
+export default useScrollSpy;

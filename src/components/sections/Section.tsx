@@ -1,5 +1,6 @@
 import { Box, BoxProps, Heading } from "@chakra-ui/react";
-import React, { SetStateAction } from "react";
+import React, { SetStateAction, useEffect, useRef } from "react";
+import useScrollSpy from "../../hooks/useScrollSpy";
 
 export interface SectionProps extends BoxProps {
   heading: null | string;
@@ -9,8 +10,17 @@ export interface SectionProps extends BoxProps {
 }
 
 export default function Section(props: SectionProps) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const isVisible = useScrollSpy(ref?.current);
+
+  useEffect(() => {
+    if (isVisible) {
+      props.setIndex(props.sectionId);
+    }
+  }, [isVisible]);
   return (
     <Box
+      ref={ref}
       scrollSnapAlign={{ xl: "start" }}
       height={{ xl: "100vh" }}
       p={4}
