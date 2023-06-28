@@ -6,7 +6,7 @@ import { useState } from "react";
 import NavItems from "./NavItems";
 
 export interface NavBarProps extends BoxProps {
-  activeIndex: number;
+  activeIndex?: number;
 }
 
 export default function NavBar(props: NavBarProps) {

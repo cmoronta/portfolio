@@ -1,4 +1,4 @@
-import { Box, ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
 import theme from "./theme";
 import Contact from "./components/sections/Contact";
 import Experience from "./components/sections/Experience";
@@ -8,28 +8,39 @@ import Home from "./components/sections/Home";
 import Container from "./components/Container";
 import NavBar from "./components/navbar/NavBar";
 import SectionContainer from "./components/sections/SectionContainer";
+import Section from "./components/sections/Section";
 import "./index.css";
-import { useRef } from "react";
-import useScrollspy from "./hooks/useScrollSpy";
+import React, { useState } from "react";
 
 function App() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [currentActiveIndex] = useScrollspy(containerRef, {
-    root: containerRef,
-  });
+  const [currentIntersectingElementIndex, setIndex] = useState<number>(-1);
+  const sections: [React.ReactNode, string | null][] = [
+    [<Home />, null],
+    [<Experience />, "Experience"],
+    [<Skills />, "Skills"],
+    [<Projects />, "Projects"],
+    [<Contact />, "Contact"],
+  ];
+  const sectionComponents = sections.map(
+    (section: [React.ReactNode, string | null], index: number) => {
+      return (
+        <Section
+          heading={section[1]}
+          sectionContent={section[0]}
+          sectionId={index}
+          setIndex={setIndex}
+          key={index}
+        />
+      );
+    }
+  );
+
+  console.log(sectionComponents[0]);
   return (
     <ChakraProvider theme={theme}>
       <Container>
-        <SectionContainer>
-          <div ref={containerRef}>
-            <Home heading={null} />
-            <Experience heading="Experience" />
-            <Skills heading="Skills" />
-            <Projects heading="Projects" />
-            <Contact heading="Contact Me" />
-          </div>
-        </SectionContainer>
-        <NavBar activeIndex={currentActiveIndex} />
+        <SectionContainer>{sectionComponents}</SectionContainer>
+        <NavBar activeIndex={currentIntersectingElementIndex} />
       </Container>
     </ChakraProvider>
   );

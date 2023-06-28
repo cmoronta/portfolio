@@ -1,9 +1,7 @@
-import { Heading, SimpleGrid } from "@chakra-ui/react";
-import { SectionProps } from "./Section";
-import Section from "./Section";
+import { SimpleGrid, SimpleGridProps } from "@chakra-ui/react";
 import SkillsCard from "../SkillsCard";
 import { SkillCardsProps } from "../SkillsCard";
-export interface SkillsProps extends SectionProps {}
+export interface SkillsProps extends SimpleGridProps {}
 
 export default function Skills(props: SkillsProps) {
   let cardData = [
@@ -48,10 +46,8 @@ export default function Skills(props: SkillsProps) {
   });
 
   return (
-    <Section heading={props.heading}>
-      <SimpleGrid p={8} spacing={4} columns={[1, null, 2, null, null, 2]}>
-        {cards}
-      </SimpleGrid>
-    </Section>
+    <SimpleGrid p={8} spacing={4} columns={[1, null, 2, null, null, 2]}>
+      {cards}
+    </SimpleGrid>
   );
 }

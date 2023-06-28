@@ -1,9 +1,7 @@
-import { Card, Flex, SimpleGrid } from "@chakra-ui/react";
-import { SectionProps } from "./Section";
-import Section from "./Section";
+import { SimpleGrid, SimpleGridProps } from "@chakra-ui/react";
 import ProjectCard from "../ProjectCard";
 
-export interface ProjectsProps extends SectionProps {}
+export interface ProjectsProps extends SimpleGridProps {}
 
 export default function Projects(props: ProjectsProps) {
   let projects = [
@@ -61,15 +59,13 @@ export default function Projects(props: ProjectsProps) {
     );
   });
   return (
-    <Section heading={props.heading}>
-      <SimpleGrid
-        height="100%"
-        p={8}
-        columns={{ base: 1, md: 2, xl: 3 }}
-        spacing={4}
-      >
-        {projectCards}
-      </SimpleGrid>
-    </Section>
+    <SimpleGrid
+      height="100%"
+      p={8}
+      columns={{ base: 1, md: 2, xl: 3 }}
+      spacing={4}
+    >
+      {projectCards}
+    </SimpleGrid>
   );
 }
