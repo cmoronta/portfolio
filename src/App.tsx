@@ -21,6 +21,7 @@ function App() {
     [<Projects />, "Projects"],
     [<Contact />, "Contact"],
   ];
+
   const sectionComponents = sections.map(
     (section: [React.ReactNode, string | null], index: number) => {
       return (
@@ -35,7 +36,6 @@ function App() {
     }
   );
 
-  console.log(sectionComponents[0]);
   return (
     <ChakraProvider theme={theme}>
       <Container>
