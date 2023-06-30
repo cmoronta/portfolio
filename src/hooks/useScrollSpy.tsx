@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 
 const useScrollSpy = (
-  element: HTMLDivElement | null,
+  element: React.RefObject<HTMLDivElement | null>,
   options?: {
     offset?: number;
     root?: React.RefObject<Element>;
@@ -12,10 +12,9 @@ const useScrollSpy = (
   const observer = useRef<IntersectionObserver>();
 
   const callback = (entries: IntersectionObserverEntry[]) => {
-    console.log("Entries: ", entries);
-    entries.forEach((entry, index) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        console.log("Current entry is: ", entry.target);
+        console.log("Current intersecting entry is: ", entry.target);
         setIsVisible(true);
       } else {
         setIsVisible(false);
@@ -24,6 +23,7 @@ const useScrollSpy = (
   };
 
   useEffect(() => {
+    console.log("Is there currently an element? ", element);
     if (observer.current) observer.current.disconnect();
 
     observer.current = new IntersectionObserver(callback, {
@@ -33,13 +33,13 @@ const useScrollSpy = (
     });
 
     const { current: ourObserver } = observer;
-
-    if (element) {
-      ourObserver.observe(element);
+    const refCopy = element.current;
+    if (refCopy) {
+      ourObserver.observe(refCopy);
     }
     return () => {
-      if (element) {
-        ourObserver.unobserve(element);
+      if (refCopy) {
+        ourObserver.unobserve(refCopy);
       }
     };
   }, [element]);

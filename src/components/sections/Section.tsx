@@ -11,8 +11,7 @@ export interface SectionProps extends BoxProps {
 
 export default function Section(props: SectionProps) {
   const ref = useRef<HTMLDivElement | null>(null);
-  const isVisible = useScrollSpy(ref?.current);
-
+  let isVisible = useScrollSpy(ref);
   useEffect(() => {
     if (isVisible) {
       props.setIndex(props.sectionId);
@@ -20,7 +19,9 @@ export default function Section(props: SectionProps) {
   }, [isVisible]);
   return (
     <Box
-      ref={ref}
+      ref={(node) => {
+        ref.current = node;
+      }}
       scrollSnapAlign={{ xl: "start" }}
       height={{ xl: "100vh" }}
       p={4}
