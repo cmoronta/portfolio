@@ -10,7 +10,7 @@ import {
   Textarea,
   VStack,
 } from "@chakra-ui/react";
-import { Field, Formik, useFormik } from "formik";
+import { Field, Formik } from "formik";
 
 export interface ContactFormProps extends BoxProps {}
 

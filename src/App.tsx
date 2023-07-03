@@ -10,10 +10,12 @@ import NavBar from "./components/navbar/NavBar";
 import SectionContainer from "./components/sections/SectionContainer";
 import Section from "./components/sections/Section";
 import "./index.css";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 function App() {
   const [currentIntersectingElementIndex, setIndex] = useState<number>(-1);
+  const sectionsRef = useRef<Map<number, HTMLDivElement> | null>(null);
+
   const sections: [React.ReactNode, string | null][] = [
     [<Home />, null],
     [<Experience />, "Experience"],
@@ -21,6 +23,14 @@ function App() {
     [<Projects />, "Projects"],
     [<Contact />, "Contact"],
   ];
+
+  const getMap = () => {
+    if (!sectionsRef.current) {
+      // Initialize the Map on first usage.
+      sectionsRef.current = new Map();
+    }
+    return sectionsRef.current;
+  };
 
   const sectionComponents = sections.map(
     (section: [React.ReactNode, string | null], index: number) => {
@@ -31,6 +41,12 @@ function App() {
           sectionId={index}
           setIndex={setIndex}
           key={index}
+          ref={(node) => {
+            const map = getMap();
+            if (node) {
+              map.set(index, node);
+            }
+          }}
         />
       );
     }
@@ -40,7 +56,10 @@ function App() {
     <ChakraProvider theme={theme}>
       <Container>
         <SectionContainer>{sectionComponents}</SectionContainer>
-        <NavBar activeIndex={currentIntersectingElementIndex} />
+        <NavBar
+          activeIndex={currentIntersectingElementIndex}
+          mapRef={sectionsRef}
+        />
       </Container>
     </ChakraProvider>
   );

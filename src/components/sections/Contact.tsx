@@ -1,6 +1,6 @@
 import { SimpleGrid, SimpleGridProps } from "@chakra-ui/react";
-import ContactForm from "./../ContactForm";
-import Map from "../Map";
+import ContactForm from "./../contact/ContactForm";
+import Map from "../contact/Map";
 
 export interface ContactProps extends SimpleGridProps {}
 

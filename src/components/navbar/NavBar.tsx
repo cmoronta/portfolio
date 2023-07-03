@@ -1,12 +1,12 @@
 import { Flex, BoxProps } from "@chakra-ui/react";
 import MobileNav from "./MobileNav";
 import DeskTopNav from "./DesktopNav";
-import useScrollSpy from "../../hooks/useScrollSpy";
-import { useState } from "react";
+import React, { useState } from "react";
 import NavItems from "./NavItems";
 
 export interface NavBarProps extends BoxProps {
   activeIndex?: number;
+  mapRef: React.RefObject<Map<number, HTMLDivElement>>;
 }
 
 export default function NavBar(props: NavBarProps) {
@@ -25,10 +25,10 @@ export default function NavBar(props: NavBarProps) {
         direction={{ base: "row", xl: "column" }}
       >
         <MobileNav>
-          <NavItems />
+          <NavItems mapRef={props.mapRef} />
         </MobileNav>
         <DeskTopNav>
-          <NavItems activeIndex={props.activeIndex} />
+          <NavItems mapRef={props.mapRef} activeIndex={props.activeIndex} />
         </DeskTopNav>
       </Flex>
     </>
